@@ -29,12 +29,13 @@ void	free_stack(t_node **stack)
 
 void	append_node(t_node **stack, t_node *new)
 {
+	t_node	*tmp;
     if (!*stack)
     {
         *stack = new;
-        return;
+        return ;
     }
-    t_node *tmp = *stack;
+    tmp = *stack;
     while (tmp->next)
         tmp = tmp->next;
     tmp->next = new;

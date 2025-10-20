@@ -28,20 +28,20 @@ void	rrotate(t_node **stack)
 	*stack = last;
 }
 
-void	rra(t_node *a)
+void	rra(t_node **a)
 {
-	rrotate(&a);
+	rrotate(a);
 	write(1, "rra\n", 4);
 }
-void	rrb(t_node *b)
+void	rrb(t_node **b)
 {
-	rrotate(&b);
+	rrotate(b);
 	write(1, "rrb\n", 4);
 }
 
-void	rrr(t_node *a, t_node *b)
+void	rrr(t_node **a, t_node **b)
 {
-	rrotate(&a);
-	rrotate(&b);
+	rrotate(a);
+	rrotate(b);
 	write(1, "rrr\n", 4);
 }

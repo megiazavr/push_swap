@@ -1,14 +1,7 @@
 // sa	swap top two of stack A
 // sb	swap top two of stack B
 // ss	sa + sb simultaneously
-// pa	push top from B → A
-// pb	push top from A → B
-// ra	rotate A (first → bottom)
-// rb	rotate B
-// rr	ra + rb
-// rra	reverse rotate A (last → top)
-// rrb	reverse rotate B
-// rrr	rra + rrb
+
 #include "push_swap.h"
 
 void    swap(t_node **stack)

@@ -35,6 +35,10 @@ void	dduupplliiccaattee(const int *head, int n);
 void	append_node(t_node **stack, t_node *new);
 void	free_stack(t_node **stack);
 
+void	ex(t_node **stack);
+t_node	*which_is_min(t_node **stack_a);
+void	push_to_b(t_node **stack_a, t_node **stack_b);
+
 void	sort(t_node **a, t_node **b, int size);
 void    yongest(t_node **stack);
 void	middle(t_node **a, t_node **b, int size);
@@ -45,17 +49,17 @@ void	sb(t_node **b);
 void	ss(t_node **a, t_node **b);
 
 void	push(t_node **stack_a, t_node **stack_b);
-void	pa(t_node *a, t_node *b);
-void	pb(t_node *a, t_node *b);
+void	pa(t_node **a, t_node **b);
+void	pb(t_node **a, t_node **b);
 
 void	rotate(t_node **stack);
-void	ra(t_node *a);
-void	rb(t_node *b);
-void	rr(t_node *a, t_node *b);
+void	ra(t_node **a);
+void	rb(t_node **b);
+void	rr(t_node **a, t_node **b);
 
 void	rrotate(t_node **stack);
-void	rra(t_node *a);
-void	rrb(t_node *b);
-void	rrr(t_node *a, t_node *b);
+void	rra(t_node **a);
+void	rrb(t_node **b);
+void	rrr(t_node **a, t_node **b);
 
 #endif

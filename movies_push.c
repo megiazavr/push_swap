@@ -18,13 +18,13 @@ void	push(t_node **stack_a, t_node **stack_b)
 	*stack_b = top_a;
 }
 
-void	pa(t_node *a, t_node *b)
+void	pa(t_node **a, t_node **b)
 {
-	push(&a, &b);
+	push(a, b);
 	write(1, "pa\n", 3);
 }
-void	pb(t_node *a, t_node *b)
+void	pb(t_node **a, t_node **b)
 {
-	push(&b, &a);
+	push(b, a);
 	write(1, "pb\n", 3);
 }
