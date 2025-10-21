@@ -66,12 +66,16 @@ char	**split(const char *s)
 
 int	*parse_args(int argc, char **argv, int *count)
 {
-	(void)argc;
+	char	*joined;
 	char **tokens;
 	int  *vals;
 	int   i;
 
-	tokens = split(argv[1]);
+	if (argc > 2)
+		joined = list(argc, argv);
+	else
+		joined = argv[1];
+	tokens = split(joined);
 	areyoudig(tokens);
 	*count = 0;
 	while (tokens[*count])
