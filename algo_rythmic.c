@@ -58,7 +58,7 @@ void    radix(t_node **stack_a, t_node **stack_b)
 		{ 
 			num = (*stack_a)->idx;
     		if (((num >> i) & 1) == 0)
-				pb(stack_b, stack_a);
+				pb(stack_a, stack_b);
 			else
 				ra(stack_a);
 			j++;
