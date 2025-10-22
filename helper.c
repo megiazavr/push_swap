@@ -40,3 +40,26 @@ void	append_node(t_node **stack, t_node *new)
         tmp = tmp->next;
     tmp->next = new;
 }
+
+void	assign_indexes(t_node **stack)
+{
+    t_node *tmp;
+    t_node *cmp;
+    int index;
+
+    tmp = *stack;
+    while (tmp)
+    {
+        index = 0;
+        cmp = *stack;
+        while (cmp)
+        {
+            if (cmp->val < tmp->val)
+                index++;
+            cmp = cmp->next;
+        }
+        tmp->idx = index;
+        printf("val=%d -> idx=%d\n", tmp->val, tmp->idx);
+        tmp = tmp->next;
+    }
+}

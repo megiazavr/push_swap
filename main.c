@@ -51,6 +51,11 @@ void	sort(t_node **a, t_node **b, int size)
 		yongest(a);
 	else if (size <= 5)
 		middle(a, b, size);
+	else
+	{
+		assign_indexes(a);
+		radix(a, b);
+	}
 }
 
 int	main(int argc, char **argv)
@@ -77,4 +82,3 @@ int	main(int argc, char **argv)
 	free_stack(&b);
 	return (0);
 }
-

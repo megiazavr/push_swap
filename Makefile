@@ -13,6 +13,7 @@ SRC := \
 	movies_rotate.c \
 	movies_rrotate.c \
 	children.c \
+	algo_rythmic.c \
 
 OBJ := $(SRC:%.c=$(OBJ_DIR)/%.o)
 DEP := $(OBJ:.o=.d)
