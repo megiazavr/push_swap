@@ -1,5 +1,7 @@
 #include "push_swap.h"
 
+//most sagnificant 
+//less segnificant
 int	list_size(t_node *stack)
 {
 	int lenght;
