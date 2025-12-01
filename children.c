@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   children.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: megiazar <megiazar@student.42lisboa.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/30 18:32:55 by megiazar          #+#    #+#             */
+/*   Updated: 2025/12/01 16:45:55 by megiazar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 #include <stdio.h>
 
@@ -5,7 +17,7 @@ void	ex(t_node **stack)
 {
 	t_node	*current;
 	t_node	*noncurrent;
-	int	index;
+	int		index;
 
 	current = *stack;
 	while (current)
@@ -21,7 +33,6 @@ void	ex(t_node **stack)
 		current->idx = index;
 		current = current->next;
 	}
-
 }
 
 t_node	*which_is_min(t_node **stack_a)
@@ -54,32 +65,30 @@ void	push_to_b(t_node **stack_a, t_node **stack_b)
 
 void	yongest(t_node **stack)
 {
-	t_node  *first;
-	t_node  *second;
-	t_node  *last;
+	int	st;
+	int	nd;
+	int	rd;
 
-	first = *stack;
-	second = (*stack)->next;
-	last = (*stack)->next->next;
-
-	if (first->val > second->val && second->val < last->val && first->val < last->val)
+	st = (*stack)->val;
+	nd = (*stack)->next->val;
+	rd = (*stack)->next->next->val;
+	if (st > nd && nd < rd && st < rd)
 		sa(stack);
-	else if (first->val > second->val && second->val > last->val)
+	else if (st > nd && nd > rd)
 	{
 		sa(stack);
 		rra(stack);
 	}
-	else if (first->val > second->val && second->val < last->val && first->val > last->val)
+	else if (st > nd && nd < rd && st > rd)
 		ra(stack);
-	else if (first->val < second->val && second->val > last->val && first->val < last->val)
+	else if (st < nd && nd > rd && st < rd)
 	{
 		sa(stack);
 		ra(stack);
 	}
-	else if (first->val < second->val && second->val > last->val && first->val > last->val)
+	else if (st < nd && nd > rd && st > rd)
 		rra(stack);
 }
-
 
 void	middle(t_node **a, t_node **b, int size)
 {
@@ -98,4 +107,3 @@ void	middle(t_node **a, t_node **b, int size)
 	while (*b)
 		pa(a, b);
 }
-

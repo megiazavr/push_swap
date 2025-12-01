@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: megiazar <megiazar@student.42lisboa.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/30 18:33:05 by megiazar          #+#    #+#             */
+/*   Updated: 2025/12/01 18:30:32 by megiazar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 t_node	*linked_list(int val)
 {
-	t_node *n;
+	t_node	*n;
 
 	n = malloc(sizeof(t_node));
 	if (!n)
@@ -13,19 +25,17 @@ t_node	*linked_list(int val)
 	return (n);
 }
 
-char	*list(int argc, char **argv)
+char	*list(int argc, char **argv, size_t len)
 {
 	int		i;
 	int		j;
-	size_t	len;
 	char	*connected;
 	char	*ptr;
 
 	i = 1;
-	len = 0;
 	while (i < argc)
 		len += strlen(argv[i++]) + 1;
-	connected = malloc(len + 1);
+	connected = malloc(sizeof(char) * (len + 1));
 	if (!connected)
 		oopsie();
 	ptr = connected;
@@ -54,31 +64,33 @@ void	sort(t_node **a, t_node **b, int size)
 	else
 	{
 		assign_indexes(a);
-		radix(a, b);
+		radix(a, b, 0, 0);
 	}
 }
 
 int	main(int argc, char **argv)
 {
-	t_node  *a;
-	t_node  *b;
+	t_node	*a;
+	t_node	*b;
 	int		*vals;
 	int		count;
-	int		i;
+	// int		i;
 
 	a = NULL;
 	b = NULL;
 	if (argc < 2)
 		return (0);
 	vals = parse_args(argc, argv, &count);
-	if (ft_issorted(vals, count))
+	printf("Here in main");
+	free(vals);
+/* 	if (ft_issorted(vals, count))
 		return (free(vals), 0);
-	i = 0;
+	 i = 0;
+	printf("count: %d\n", count);
 	while (i < count)
 		append_node(&a, linked_list(vals[i++]));
 	sort(&a, &b, count);
-	free(vals);
 	free_stack(&a);
-	free_stack(&b);
-	return (0);
+	free(vals);
+	return (0); */
 }

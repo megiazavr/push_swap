@@ -1,8 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: megiazar <megiazar@student.42lisboa.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/30 18:33:47 by megiazar          #+#    #+#             */
+/*   Updated: 2025/12/01 17:37:26 by megiazar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	oopsie(void)
 {
-	write(2, "Error\n", 6);
+	// write(2, "Error\n", 6);
+	perror("error:");
 	exit(1);
 }
 
@@ -32,16 +45,16 @@ long	maximini(const char *s)
 			oopsie();
 		i++;
 	}
-    return (res * sign);
+	return (res * sign);
 }
 
 void	areyoudig(char **list)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	if (!list)
-			oopsie();
+		oopsie();
 	i = 0;
 	while (list[i])
 	{
@@ -49,32 +62,35 @@ void	areyoudig(char **list)
 		if (list[i][j] == '+' || list[i][j] == '-')
 			j++;
 		if (list[i][j] == '\0')
-			oopsie();
+			free_array(list);
 		while (list[i][j])
 		{
 			if (!ft_isdigit((unsigned char)list[i][j]))
-				oopsie();
+				free_array(list);
 			j++;
 		}
 		i++;
 	}
 }
 
-void	dduupplliiccaattee(const int *vals, int n)
+void	dduupplliiccaattee(int *vals, int n)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	if (!vals || n <= 1)
-		return;
+		return ;
 	i = 0;
 	while (i < n - 1)
 	{
 		j = i + 1;
 		while (j < n)
 		{
-			if (vals[i] == vals[j])  
+			if (vals[i] == vals[j])
+			{
+				free(vals);
 				oopsie();
+			}
 			j++;
 		}
 		i++;

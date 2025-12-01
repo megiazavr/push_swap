@@ -1,10 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   algo_rythmic.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: megiazar <megiazar@student.42lisboa.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/30 18:32:50 by megiazar          #+#    #+#             */
+/*   Updated: 2025/11/30 19:45:10 by megiazar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-//most sagnificant 
-//less segnificant
 int	list_size(t_node *stack)
 {
-	int lenght;
+	int	lenght;
 
 	lenght = 0;
 	while (stack)
@@ -15,9 +25,9 @@ int	list_size(t_node *stack)
 	return (lenght);
 }
 
-int    whereismax(t_node *stack)
+int	whereismax(t_node *stack)
 {
-	int max;
+	int	max;
 
 	max = stack->idx;
 	while (stack)
@@ -29,7 +39,7 @@ int    whereismax(t_node *stack)
 	return (max);
 }
 
-int    number_of_bits(int num)
+int	number_of_bits(int num)
 {
 	int	bits;
 
@@ -39,27 +49,24 @@ int    number_of_bits(int num)
 	return (bits);
 }
 
-void    radix(t_node **stack_a, t_node **stack_b)
+void	radix(t_node **stack_a, t_node **stack_b, int size, int num)
 {
-	int i;
+	int	i;
 	int	j;
-	int size;
 	int	max_num;
 	int	max_bits;
-	int	num;
 
 	i = 0;
 	max_num = whereismax(*stack_a);
 	max_bits = number_of_bits(max_num);
-	printf("max = %d, max_bits = %d\n", max_num, max_bits);
 	while (i < max_bits)
 	{
 		j = 0;
 		size = list_size(*stack_a);
 		while (j < size)
-		{ 
+		{
 			num = (*stack_a)->idx;
-    		if (((num >> i) & 1) == 0)
+			if (((num >> i) & 1) == 0)
 				pb(stack_a, stack_b);
 			else
 				ra(stack_a);
@@ -70,4 +77,3 @@ void    radix(t_node **stack_a, t_node **stack_b)
 		i++;
 	}
 }
-

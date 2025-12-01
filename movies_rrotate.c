@@ -1,11 +1,14 @@
-// rrotate	reverse rotate A (last → top)
-// rrb	reverse rotate B
-// rrr	rrotate + rrb
-
-//rra (reverse rotate a): Shift down all elements of stack a by 1.
-//The last element becomes the first one.
-//rrb (reverse rotate b): Shift down all elements of stack b by 1. The last element becomes the first one.
-//rrr : rra and rrb at the same time.
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   movies_rrotate.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: megiazar <megiazar@student.42lisboa.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/30 18:33:30 by megiazar          #+#    #+#             */
+/*   Updated: 2025/11/30 19:23:56 by megiazar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
@@ -17,7 +20,6 @@ void	rrotate(t_node **stack)
 
 	first = *stack;
 	last = *stack;
-
 	while (last->next)
 	{
 		notlast = last;
@@ -33,6 +35,7 @@ void	rra(t_node **a)
 	rrotate(a);
 	write(1, "rra\n", 4);
 }
+
 void	rrb(t_node **b)
 {
 	rrotate(b);

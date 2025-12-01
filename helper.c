@@ -1,10 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   helper.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: megiazar <megiazar@student.42lisboa.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/30 18:33:00 by megiazar          #+#    #+#             */
+/*   Updated: 2025/12/01 15:43:32 by megiazar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	ft_isspace(int c)
 {
-	if (c == ' ' || c == '\t' || c == '\n' || c == '\r' || c == '\v' || c == '\f')
+	if (c == ' ' || c == '\t' || c == '\n'
+		|| c == '\r' || c == '\v' || c == '\f')
 		return (1);
-    else
+	else
 		return (0);
 }
 
@@ -19,47 +32,50 @@ void	free_stack(t_node **stack)
 {
 	t_node	*tmp;
 
+	if (!stack || !*stack)
+		return ;
 	while (*stack)
 	{
 		tmp = (*stack)->next;
 		free(*stack);
 		*stack = tmp;
 	}
+	*stack = NULL;
 }
 
 void	append_node(t_node **stack, t_node *new)
 {
 	t_node	*tmp;
-    if (!*stack)
-    {
-        *stack = new;
-        return ;
-    }
-    tmp = *stack;
-    while (tmp->next)
-        tmp = tmp->next;
-    tmp->next = new;
+
+	if (!*stack)
+	{
+		*stack = new;
+		return ;
+	}
+	tmp = *stack;
+	while (tmp->next)
+		tmp = tmp->next;
+	tmp->next = new;
 }
 
 void	assign_indexes(t_node **stack)
 {
-    t_node *tmp;
-    t_node *cmp;
-    int index;
+	t_node	*tmp;
+	t_node	*cmp;
+	int		index;
 
-    tmp = *stack;
-    while (tmp)
-    {
-        index = 0;
-        cmp = *stack;
-        while (cmp)
-        {
-            if (cmp->val < tmp->val)
-                index++;
-            cmp = cmp->next;
-        }
-        tmp->idx = index;
-        printf("val=%d -> idx=%d\n", tmp->val, tmp->idx);
-        tmp = tmp->next;
-    }
+	tmp = *stack;
+	while (tmp)
+	{
+		index = 0;
+		cmp = *stack;
+		while (cmp)
+		{
+			if (cmp->val < tmp->val)
+				index++;
+			cmp = cmp->next;
+		}
+		tmp->idx = index;
+		tmp = tmp->next;
+	}
 }

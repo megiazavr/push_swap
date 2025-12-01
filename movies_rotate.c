@@ -1,7 +1,15 @@
-// ra (rotate a): Shift up all elements of stack a by 1.
-// The first element becomes the last one.
-// rb (rotate b): Shift up all elements of stack b by 1. The first element becomes the last one.
-// rr : ra and rb at the same time.
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   movies_rotate.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: megiazar <megiazar@student.42lisboa.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/30 18:33:21 by megiazar          #+#    #+#             */
+/*   Updated: 2025/11/30 19:35:43 by megiazar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	rotate(t_node **stack)
@@ -13,7 +21,6 @@ void	rotate(t_node **stack)
 	first = *stack;
 	second = (*stack)->next;
 	last = *stack;
-
 	while (last->next)
 		last = last->next;
 	(*stack) = second;
@@ -26,6 +33,7 @@ void	ra(t_node **a)
 	rotate(a);
 	write(1, "ra\n", 3);
 }
+
 void	rb(t_node **b)
 {
 	rotate(b);
