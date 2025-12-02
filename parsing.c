@@ -6,7 +6,7 @@
 /*   By: megiazar <megiazar@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 18:33:47 by megiazar          #+#    #+#             */
-/*   Updated: 2025/12/01 17:37:26 by megiazar         ###   ########.fr       */
+/*   Updated: 2025/12/02 21:28:48 by megiazar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 void	oopsie(void)
 {
-	// write(2, "Error\n", 6);
-	perror("error:");
+	write(2, "Error\n", 6);
 	exit(1);
 }
 

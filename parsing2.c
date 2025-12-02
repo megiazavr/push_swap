@@ -6,7 +6,7 @@
 /*   By: megiazar <megiazar@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 18:33:51 by megiazar          #+#    #+#             */
-/*   Updated: 2025/12/01 18:35:33 by megiazar         ###   ########.fr       */
+/*   Updated: 2025/12/02 21:28:48 by megiazar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 
 void	free_array(char **list)
 {
-	int i = 0;
-	
+	int	i;
+
+	i = 0;
 	while (list[i])
 		free(list[i++]);
 	free(list);
-	// oopsie();
+	oopsie();
 }
 
 char	*word(const char *s, int start, int end)
@@ -86,36 +87,17 @@ char	**split(char *s)
 	return (arr);
 }
 
-int	*parse_args(int argc, char **argv, int *count)
+char	**parse_args_part(int argc, char *argv[])
 {
 	char	*joined;
 	char	**tokens;
-	int		*vals;
-	//   int		i;
 
 	if (argc > 2)
 		joined = list(argc, argv, 0);
 	else
 		joined = argv[1];
 	tokens = split(joined);
-	free(joined);
-	areyoudig(tokens);
-	*count = 0;
-	while (tokens[*count])
-		(*count)++;
-	vals = malloc(sizeof(int) * (*count));
-	if (!vals)
-		oopsie();
-/* 	i = 0;
-	 while (i < *count)
-	{
-		vals[i] = (int)maximini(tokens[i]);
-		printf("Number: %d\n", vals[i]);
-		i++;
-	}
-	printf("Here");
-	dduupplliiccaattee(vals, *count);   */
-	free_array(tokens);
-	// return (vals);
-	return (NULL);
+	if (argc > 2)
+		free(joined);
+	return (tokens);
 }

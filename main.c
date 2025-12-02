@@ -6,7 +6,7 @@
 /*   By: megiazar <megiazar@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 18:33:05 by megiazar          #+#    #+#             */
-/*   Updated: 2025/12/01 18:30:32 by megiazar         ###   ########.fr       */
+/*   Updated: 2025/12/02 20:13:05 by megiazar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,29 +68,51 @@ void	sort(t_node **a, t_node **b, int size)
 	}
 }
 
+int	*parse_args(int argc, char **argv, int *count)
+{
+	char	**tokens;
+	int		*vals;
+	int		i;
+
+	tokens = parse_args_part(argc, argv);
+	areyoudig(tokens);
+	*count = 0;
+	while (tokens[*count])
+		(*count)++;
+	vals = malloc(sizeof(int) * (*count));
+	if (!vals)
+		oopsie();
+	i = 0;
+	while (i < *count)
+	{
+		vals[i] = (int)maximini(tokens[i]);
+		i++;
+	}
+	free_array(tokens);
+	dduupplliiccaattee(vals, *count);
+	return (vals);
+}
+
 int	main(int argc, char **argv)
 {
 	t_node	*a;
 	t_node	*b;
 	int		*vals;
 	int		count;
-	// int		i;
+	int		i;
 
 	a = NULL;
 	b = NULL;
 	if (argc < 2)
 		return (0);
 	vals = parse_args(argc, argv, &count);
-	printf("Here in main");
-	free(vals);
-/* 	if (ft_issorted(vals, count))
+	if (ft_issorted(vals, count))
 		return (free(vals), 0);
-	 i = 0;
-	printf("count: %d\n", count);
+	i = 0;
 	while (i < count)
 		append_node(&a, linked_list(vals[i++]));
 	sort(&a, &b, count);
-	free_stack(&a);
 	free(vals);
-	return (0); */
+	free_stack(&a);
+	return (0);
 }

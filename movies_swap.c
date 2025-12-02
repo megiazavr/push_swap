@@ -6,7 +6,7 @@
 /*   By: megiazar <megiazar@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 18:33:40 by megiazar          #+#    #+#             */
-/*   Updated: 2025/11/30 19:35:04 by megiazar         ###   ########.fr       */
+/*   Updated: 2025/12/01 19:20:51 by megiazar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@ void	swap(t_node **stack)
 	t_node	*second;
 
 	first = *stack;
-	second = (*stack)->next;
+	second = first->next;
 	first->next = second->next;
 	second->next = first;
+	*stack = second;
 }
 
 void	sa(t_node **a)

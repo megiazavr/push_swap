@@ -6,7 +6,7 @@
 /*   By: megiazar <megiazar@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 19:14:09 by megiazar          #+#    #+#             */
-/*   Updated: 2025/12/01 18:01:54 by megiazar         ###   ########.fr       */
+/*   Updated: 2025/12/02 21:25:06 by megiazar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct s_node
 }	t_node;
 
 t_node	*linked_list(int val);
-t_node	*which_is_min(t_node **stack_a);
+t_node	*which_is_min(t_node **stack_a, int *pos_min);
 
 void	assign_indexes(t_node **stack);
 
@@ -37,7 +37,7 @@ int		ft_isspace(int c);
 int		ft_isdigit(int c);
 int		ft_issorted(int *vals, int count);
 int		word_count(const char *s);
-int		*parse_args(int argc, char **argv,  int *count);
+int		*parse_args(int argc, char **argv, int *count);
 
 int		list_size(t_node *stack);
 int		whereismax(t_node *stack);
@@ -48,6 +48,7 @@ long	maximini(const char *s);
 char	**split(char *s);
 char	*list(int argc, char **argv, size_t len);
 char	*word(const char *s, int start, int end);
+char	**parse_args_part(int argc, char *argv[]);
 
 void	oopsie(void);
 void	areyoudig(char **list);
