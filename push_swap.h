@@ -6,7 +6,7 @@
 /*   By: megiazar <megiazar@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 19:14:09 by megiazar          #+#    #+#             */
-/*   Updated: 2025/12/02 21:25:06 by megiazar         ###   ########.fr       */
+/*   Updated: 2025/12/03 17:49:01 by megiazar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,7 @@ typedef struct s_node
 
 t_node	*linked_list(int val);
 t_node	*which_is_min(t_node **stack_a, int *pos_min);
-
-void	assign_indexes(t_node **stack);
+size_t	ft_strlen(const char *s);
 
 int		main(int argc, char **argv);
 int		ft_isspace(int c);
@@ -51,15 +50,13 @@ char	*word(const char *s, int start, int end);
 char	**parse_args_part(int argc, char *argv[]);
 
 void	oopsie(void);
-void	areyoudig(char **list);
+void	areyoudig(char **list, int i);
 void	dduupplliiccaattee(int *head, int n);
 void	append_node(t_node **stack, t_node *new);
 void	free_stack(t_node **stack);
 void	free_array(char **list);
 
-void	ex(t_node **stack);
-void	push_to_b(t_node **stack_a, t_node **stack_b);
-
+void	ind(t_node **stack);
 void	sort(t_node **a, t_node **b, int size);
 void	yongest(t_node **stack);
 void	middle(t_node **a, t_node **b, int size);

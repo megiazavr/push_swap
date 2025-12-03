@@ -6,13 +6,13 @@
 /*   By: megiazar <megiazar@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 18:32:55 by megiazar          #+#    #+#             */
-/*   Updated: 2025/12/02 21:28:48 by megiazar         ###   ########.fr       */
+/*   Updated: 2025/12/03 17:21:46 by megiazar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ex(t_node **stack)
+void	ind(t_node **stack)
 {
 	t_node	*current;
 	t_node	*noncurrent;
@@ -59,18 +59,6 @@ t_node	*which_is_min(t_node **stack_a, int *pos_min)
 	return (min);
 }
 
-void	push_to_b(t_node **stack_a, t_node **stack_b)
-{
-	t_node	*min_idx;
-
-	if (!stack_a || !*stack_a)
-		return ;
-	min_idx = which_is_min(stack_a, 0);
-	while (*stack_a != min_idx)
-		ra(stack_a);
-	pb(stack_a, stack_b);
-}
-
 void	yongest(t_node **stack)
 {
 	t_node	*st;
@@ -103,7 +91,7 @@ void	middle(t_node **a, t_node **b, int size)
 	t_node	*min;
 	int		pos;
 
-	ex(a);
+	ind(a);
 	while (size > 3)
 	{
 		min = which_is_min(a, &pos);

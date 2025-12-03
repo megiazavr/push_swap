@@ -6,7 +6,7 @@
 /*   By: megiazar <megiazar@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 18:33:51 by megiazar          #+#    #+#             */
-/*   Updated: 2025/12/02 21:28:48 by megiazar         ###   ########.fr       */
+/*   Updated: 2025/12/03 16:23:33 by megiazar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	free_array(char **list)
 	while (list[i])
 		free(list[i++]);
 	free(list);
-	oopsie();
 }
 
 char	*word(const char *s, int start, int end)
@@ -43,19 +42,19 @@ char	*word(const char *s, int start, int end)
 int	word_count(const char *s)
 {
 	int	count;
-	int	in_word;
+	int	word_flag;
 
 	count = 0;
-	in_word = 0;
+	word_flag = 0;
 	while (*s)
 	{
-		if (!ft_isspace(*s) && !in_word)
+		if (!ft_isspace(*s) && !word_flag)
 		{
-			in_word = 1;
+			word_flag = 1;
 			count++;
 		}
 		else if (ft_isspace(*s))
-			in_word = 0;
+			word_flag = 0;
 		s++;
 	}
 	return (count);
@@ -70,6 +69,8 @@ char	**split(char *s)
 
 	i = 0;
 	k = 0;
+	if ((word_count(s) == 0))
+		oopsie();
 	arr = malloc((word_count(s) + 1) * sizeof(char *));
 	if (!arr)
 		oopsie();

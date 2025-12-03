@@ -6,7 +6,7 @@
 /*   By: megiazar <megiazar@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 18:33:05 by megiazar          #+#    #+#             */
-/*   Updated: 2025/12/02 20:13:05 by megiazar         ###   ########.fr       */
+/*   Updated: 2025/12/03 17:50:16 by megiazar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char	*list(int argc, char **argv, size_t len)
 
 	i = 1;
 	while (i < argc)
-		len += strlen(argv[i++]) + 1;
+		len += ft_strlen(argv[i++]) + 1;
 	connected = malloc(sizeof(char) * (len + 1));
 	if (!connected)
 		oopsie();
@@ -63,7 +63,7 @@ void	sort(t_node **a, t_node **b, int size)
 		middle(a, b, size);
 	else
 	{
-		assign_indexes(a);
+		ind(a);
 		radix(a, b, 0, 0);
 	}
 }
@@ -75,7 +75,7 @@ int	*parse_args(int argc, char **argv, int *count)
 	int		i;
 
 	tokens = parse_args_part(argc, argv);
-	areyoudig(tokens);
+	areyoudig(tokens, 0);
 	*count = 0;
 	while (tokens[*count])
 		(*count)++;

@@ -6,7 +6,7 @@
 /*   By: megiazar <megiazar@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 18:33:00 by megiazar          #+#    #+#             */
-/*   Updated: 2025/12/01 15:43:32 by megiazar         ###   ########.fr       */
+/*   Updated: 2025/12/03 17:57:02 by megiazar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,24 +58,12 @@ void	append_node(t_node **stack, t_node *new)
 	tmp->next = new;
 }
 
-void	assign_indexes(t_node **stack)
+size_t	ft_strlen(const char *s)
 {
-	t_node	*tmp;
-	t_node	*cmp;
-	int		index;
+	size_t	i;
 
-	tmp = *stack;
-	while (tmp)
-	{
-		index = 0;
-		cmp = *stack;
-		while (cmp)
-		{
-			if (cmp->val < tmp->val)
-				index++;
-			cmp = cmp->next;
-		}
-		tmp->idx = index;
-		tmp = tmp->next;
-	}
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: megiazar <megiazar@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 18:33:47 by megiazar          #+#    #+#             */
-/*   Updated: 2025/12/02 21:28:48 by megiazar         ###   ########.fr       */
+/*   Updated: 2025/12/03 15:48:22 by megiazar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,25 +47,29 @@ long	maximini(const char *s)
 	return (res * sign);
 }
 
-void	areyoudig(char **list)
+void	areyoudig(char **list, int i)
 {
-	int	i;
 	int	j;
 
 	if (!list)
 		oopsie();
-	i = 0;
 	while (list[i])
 	{
 		j = 0;
 		if (list[i][j] == '+' || list[i][j] == '-')
 			j++;
 		if (list[i][j] == '\0')
+		{
 			free_array(list);
+			oopsie();
+		}
 		while (list[i][j])
 		{
 			if (!ft_isdigit((unsigned char)list[i][j]))
+			{
 				free_array(list);
+				oopsie();
+			}
 			j++;
 		}
 		i++;
